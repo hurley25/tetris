@@ -12,7 +12,7 @@ public class FrameGame extends JFrame {
 	public FrameGame() {
 		this.setTitle("Java¶íÂÞË¹·½¿é");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(1162, 654);
+		this.setSize(1162, 680);
 		this.setResizable(false);
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		Dimension screen = toolkit.getScreenSize();
