@@ -10,17 +10,18 @@ import javax.swing.ImageIcon;
  * 2013/2/5
  */
 
-public class Lay {
+public abstract class Lay {
 	
+	protected static final int PADDING = 16;
 	private static final int SIZE = 7;
 	private static final Image WINDOW_IMG = new ImageIcon("graphics/window/window.png").getImage();
 	private static final int WINDOW_IMGW = WINDOW_IMG.getWidth(null);
 	private static final int WINDOW_IMGH = WINDOW_IMG.getHeight(null);
 	
-	private int x;	// 绘制左上角 x 坐标
-	private int y;	// 绘制左上角 y 坐标
-	private int w;	// 绘制宽度
-	private int h;	// 绘制高度
+	protected int x;	// 绘制左上角 x 坐标
+	protected int y;	// 绘制左上角 y 坐标
+	protected int w;	// 绘制宽度
+	protected int h;	// 绘制高度
 	
 	public Lay(int x, int y, int w, int h) {
 		this.x = x;
@@ -29,9 +30,10 @@ public class Lay {
 		this.h = h;
 	}
 	
-	/**
-	 * 绘制窗口
-	 */
+	// Java 在一个类里定义虚接口后类本身也得定义为虚类？
+	abstract public void paint(Graphics g);
+	
+	// 绘制窗口
 	public void createWindow(Graphics g) {
 		// 左上
 		g.drawImage(WINDOW_IMG, x, y, x+SIZE, y+SIZE, 0, 0, SIZE, SIZE, null);
