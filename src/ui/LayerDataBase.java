@@ -5,11 +5,11 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-public class LayDataBase extends Lay {
+public class LayerDataBase extends Layer {
 	
 	private static Image IMG_DB = new ImageIcon("graphics/string/db.png").getImage();
 	
-	public LayDataBase(int x, int y, int w, int h) {
+	public LayerDataBase(int x, int y, int w, int h) {
 		super(x, y, w, h);
 	}
 	

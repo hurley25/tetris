@@ -5,11 +5,11 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-public class LayDisk extends Lay {
+public class LayerDisk extends Layer {
 	
 	private static Image IMG_DISK = new ImageIcon("graphics/string/disk.png").getImage();
 	
-	public LayDisk(int x, int y, int w, int h) {
+	public LayerDisk(int x, int y, int w, int h) {
 		super(x, y, w, h);
 	}
 	

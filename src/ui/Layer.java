@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
  * 2013/2/5
  */
 
-public abstract class Lay {
+public abstract class Layer {
 	
 	protected static final int PADDING = 16;
 	private static final int SIZE = 7;
@@ -23,7 +23,7 @@ public abstract class Lay {
 	protected int w;	// 绘制宽度
 	protected int h;	// 绘制高度
 	
-	public Lay(int x, int y, int w, int h) {
+	public Layer(int x, int y, int w, int h) {
 		this.x = x;
 		this.y = y;
 		this.w = w;

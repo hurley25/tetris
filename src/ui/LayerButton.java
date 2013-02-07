@@ -2,9 +2,9 @@ package ui;
 
 import java.awt.Graphics;
 
-public class LayNext extends Lay {
+public class LayerButton extends Layer {
 	
-	public LayNext(int x, int y, int w, int h) {
+	public LayerButton(int x, int y, int w, int h) {
 		super(x, y, w, h);
 	}
 	

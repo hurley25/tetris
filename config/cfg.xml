@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<game>
+    <frame width="1168"  height="680" padding="16" windowSize="7">
+        <layer className="ui.LayerBackgroung" x="0" y="0" w="0" h="0" />
+        <layer className="ui.LayerDataBase" x="40" y="32" w="334" h="279" />
+        <layer className="ui.LayerDisk" x="40" y="343" w="334" h="279" />
+        <layer className="ui.LayerGame" x="414" y="32" w="334" h="590" />
+        <layer className="ui.LayerButton" x="788" y="32" w="334" h="124" />
+        <layer className="ui.LayerNext" x="788" y="188" w="176" h="148" />
+        <layer className="ui.LayerLevel" x="964" y="188" w="158" h="148" />
+        <layer className="ui.LayerPoint" x="788" y="368" w="334" h="200" />
+    </frame>
+    <system>
+        
+    </system>
+    <data>
+        
+    </data>
+    
+</game>
