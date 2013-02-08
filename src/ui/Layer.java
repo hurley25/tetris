@@ -5,6 +5,9 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+import config.ConfigFactory;
+import config.GameConfig;
+
 /**
  * 绘制窗口类
  * 2013/2/5
@@ -12,8 +15,15 @@ import javax.swing.ImageIcon;
 
 public abstract class Layer {
 	
-	protected static final int PADDING = 16;
-	private static final int SIZE = 7;
+	protected static final int PADDING;
+	private static final int SIZE;
+	
+	static {
+		// 获得游戏配置
+		GameConfig cfg = ConfigFactory.getGameConfig();
+		PADDING = cfg.getPadding();
+		SIZE = cfg.getWindowSize();
+	}
 	private static final Image WINDOW_IMG = new ImageIcon("graphics/window/window.png").getImage();
 	private static final int WINDOW_IMGW = WINDOW_IMG.getWidth(null);
 	private static final int WINDOW_IMGH = WINDOW_IMG.getHeight(null);

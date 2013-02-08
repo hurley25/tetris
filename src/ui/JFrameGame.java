@@ -13,15 +13,22 @@ public class JFrameGame extends JFrame {
 	private static final long serialVersionUID = -6194695820531427582L;
 
 	public JFrameGame() {
-		this.setTitle("Java俄罗斯方块");
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		// 获得游戏配置
 		GameConfig cfg = ConfigFactory.getGameConfig();
+		// 设置窗口标题
+		this.setTitle(cfg.getTitle());
+		// 设置默认关闭属性（程序结束）
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// 设置窗口大小
 		this.setSize(cfg.getWidth(), cfg.getHeight());
+		// 不允许用户改变窗口大小
 		this.setResizable(false);
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		Dimension screen = toolkit.getScreenSize();
-		this.setLocation((screen.width - this.getWidth()) / 2, (screen.height - this.getHeight()) / 2 - 32);
+		int x = screen.width - this.getWidth() >> 1;
+		int y = (screen.height - this.getHeight() >> 1) - cfg.getWindowUp();
+		this.setLocation(x, y);
 		this.setContentPane(new JPanelGame());
 	}
 }

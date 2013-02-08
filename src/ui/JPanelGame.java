@@ -7,17 +7,36 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
+import service.GameService;
 import config.ConfigFactory;
 import config.GameConfig;
 import config.LayerConfig;
+import control.GameControl;
+import control.PlayerConcrol;
 
 public class JPanelGame extends JPanel{
 
 	private static final long serialVersionUID = -4916424649169424601L;
 	private List<Layer> layers = null;
-
+	
 	public JPanelGame() {
-		
+		// 初始化组件
+		initComponent();
+		// 初始化层
+		initLayer();
+	}
+	
+	/*
+	 * 初始化组件
+	 */
+	public void initComponent() {
+		this.addKeyListener(new PlayerConcrol(new GameControl(this, new GameService())));
+	}
+	
+	/*
+	 * 初始化层
+	 */
+	public void initLayer() {
 		try {
 			// 获得游戏配置
 			GameConfig cfg = ConfigFactory.getGameConfig();
@@ -45,9 +64,12 @@ public class JPanelGame extends JPanel{
 	}
 	
 	public void paintComponent(Graphics g) {
-		
+		// 调用基类方法
+		super.paintComponent(g);
 		for (Layer layer : layers) {
 			layer.paint(g);
 		}
+		// 返回焦点
+		this.requestFocus();
 	}
 }
