@@ -16,6 +16,21 @@ public class PlayerConcrol extends KeyAdapter{
 	 * @see java.awt.event.KeyAdapter#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(KeyEvent e) {
-		this.gameControl.test();
+		switch (e.getKeyCode()) {
+		case KeyEvent.VK_UP:
+			this.gameControl.keyUp();
+			break;
+		case KeyEvent.VK_DOWN:
+			this.gameControl.keyDown();
+			break;
+		case KeyEvent.VK_LEFT:
+			this.gameControl.keyLeft();
+			break;
+		case KeyEvent.VK_RIGHT:
+			this.gameControl.keyRight();
+			break;
+		default:
+			break;
+		}
 	}
 }

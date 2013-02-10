@@ -17,9 +17,36 @@ public class GameControl {
 		this.panelGame = panelGame;
 		this.gameService = gameService;
 	}
+	
+	/*
+	 * 控制键按下（上）
+	 */
+	public void keyUp() {
+		this.gameService.keyUp();
+		this.panelGame.repaint();
+	}
+	
+	/*
+	 * 控制键按下（下）
+	 */
+	public void keyDown() {
+		this.gameService.keyDown();
+		this.panelGame.repaint();
+	}
 
-	public void test() {
-		this.gameService.gameTest();
+	/*
+	 * 控制键按下（左）
+	 */
+	public void keyLeft() {
+		this.gameService.keyLeft();
+		this.panelGame.repaint();
+	}
+
+	/*
+	 * 控制键按下（右）
+	 */
+	public void keyRight() {
+		this.gameService.keyRight();
 		this.panelGame.repaint();
 	}
 }
