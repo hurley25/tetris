@@ -16,6 +16,6 @@ public class PlayerConcrol extends KeyAdapter{
 	 * @see java.awt.event.KeyAdapter#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(KeyEvent e) {
-		e.getKeyCode();
+		this.gameControl.test();
 	}
 }

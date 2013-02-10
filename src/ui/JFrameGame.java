@@ -12,7 +12,7 @@ public class JFrameGame extends JFrame {
 
 	private static final long serialVersionUID = -6194695820531427582L;
 
-	public JFrameGame() {
+	public JFrameGame(JPanelGame panelGame) {
 		
 		// 获得游戏配置
 		GameConfig cfg = ConfigFactory.getGameConfig();
@@ -24,11 +24,15 @@ public class JFrameGame extends JFrame {
 		this.setSize(cfg.getWidth(), cfg.getHeight());
 		// 不允许用户改变窗口大小
 		this.setResizable(false);
+		// 窗口居中
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		Dimension screen = toolkit.getScreenSize();
 		int x = screen.width - this.getWidth() >> 1;
 		int y = (screen.height - this.getHeight() >> 1) - cfg.getWindowUp();
 		this.setLocation(x, y);
-		this.setContentPane(new JPanelGame());
+		// 设置默认Panel
+		this.setContentPane(panelGame);
+		// 设置该窗口默认显示
+		this.setVisible(true);
 	}
 }

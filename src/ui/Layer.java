@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 
 import config.ConfigFactory;
 import config.GameConfig;
+import dto.GameDto;
 
 /**
  * 绘制窗口类
@@ -33,11 +34,18 @@ public abstract class Layer {
 	protected int w;	// 绘制宽度
 	protected int h;	// 绘制高度
 	
+	// 游戏数据
+	protected GameDto dto = null;
+
 	public Layer(int x, int y, int w, int h) {
 		this.x = x;
 		this.y = y;
 		this.w = w;
 		this.h = h;
+	}
+	
+	public void setDto(GameDto dto) {
+		this.dto = dto;
 	}
 	
 	// Java 在一个类里定义虚接口后类本身也得定义为虚类？
