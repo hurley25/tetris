@@ -22,6 +22,22 @@ public class GameDto {
 	private int nowPoint;
 	// 消行
 	private int nowRemoveLine;
+	
+	/*
+	 * 构造函数
+	 */
+	public GameDto() {
+		dtoInit();
+	}
+	
+	/*
+	 * dto初始化
+	 */
+	public void dtoInit() {
+		// TODO
+		this.gameMap = new boolean[10][18];
+		// TODO 初始化所有游戏对象
+	}
 
 	public List<Player> getDbRecode() {
 		return dbRecode;

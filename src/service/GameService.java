@@ -1,6 +1,7 @@
 package service;
 
 import java.awt.Point;
+import java.util.Random;
 
 import dto.GameDto;
 import entity.GameAct;
@@ -8,7 +9,13 @@ import entity.GameAct;
 public class GameService {
 	
 	private GameDto dto;
-
+	
+	// 随机数生成器
+	private Random random = new Random();
+	
+	// 下一个方块
+	private static final int MAX_TYPE = 6; 
+	
 	public GameService(GameDto dto) {
 		this.dto = dto;
 		GameAct act = new GameAct();
@@ -16,55 +23,44 @@ public class GameService {
 	}
 	
 	/*
-	 * 控制键按下（上）
+	 * 方块操作（上）
 	 */
 	public void keyUp() {
 		// TODO 修改为旋转
-		if (canMove(0, -1)) {
-			this.dto.getGameAct().move(0, -1);
-		}
+		this.dto.getGameAct().round(this.dto.getGameMap());
 	}
 	
 	/*
-	 * 控制键按下（下）
+	 * 方块操作（下）
 	 */
 	public void keyDown() {
-		if (canMove(0, 1)) {
-			this.dto.getGameAct().move(0, 1);
+		if (this.dto.getGameAct().move(0, 1, this.dto.getGameMap())) {
+			return;
 		}
+		// 获得游戏地图对象
+		boolean[][] map = this.dto.getGameMap();
+		// 获得方块对象
+		Point[] act = this.dto.getGameAct().getActPoints();
+		// 方块添加到地图
+		for (int i = 0; i < act.length; i++) {
+			map[act[i].x][act[i].y] = true;
+		}
+		// TODO 判断是否可以消行 消行 计分 是否升级
+		// 刷新一个新的方块
+		this.dto.getGameAct().init(random.nextInt(MAX_TYPE));
 	}
 
 	/*
-	 * 控制键按下（左）
+	 * 方块操作（左）
 	 */
 	public void keyLeft() {
-		if (canMove(-1, 0)) {
-			this.dto.getGameAct().move(-1, 0);
-		}
+		this.dto.getGameAct().move(-1, 0, this.dto.getGameMap());
 	}
 
 	/*
-	 * 控制键按下（右）
+	 * 方块操作（右）
 	 */
 	public void keyRight() {
-		if (canMove(1, 0)) {
-			this.dto.getGameAct().move(1, 0);
-		}
-	}
-	
-	/*
-	 * 边界判定
-	 */
-	private boolean canMove(int moveX, int moveY) {
-		Point[] nowPoints = this.dto.getGameAct().getActPoints();
-		for (int i = 0; i < nowPoints.length; i++) {
-			int newX = nowPoints[i].x + moveX;
-			int newY = nowPoints[i].y + moveY;
-			// TODO
-			if (newX < 0 || newX > 9 || newY < 0 || newY > 17) {
-				return false;
-			}
-		}
-		return true;
+		this.dto.getGameAct().move(1, 0, this.dto.getGameMap());
 	}
 }
