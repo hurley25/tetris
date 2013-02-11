@@ -46,8 +46,9 @@ public class GameService {
 			map[act[i].x][act[i].y] = true;
 		}
 		// TODO 判断是否可以消行 消行 计分 是否升级
-		// 刷新一个新的方块
-		this.dto.getGameAct().init(random.nextInt(MAX_TYPE));
+		// 随机生成下一个方块
+		this.dto.getGameAct().init(this.dto.getNext());
+		this.dto.setNext(random.nextInt(MAX_TYPE));
 	}
 
 	/*
