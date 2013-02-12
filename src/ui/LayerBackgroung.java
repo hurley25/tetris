@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 
 public class LayerBackgroung extends Layer {
 	
-	private static Image IMG_BK = new ImageIcon("graphics/background/bg01.jpg").getImage();
+	private static Image IMG_BK = new ImageIcon("graphics/background/bg.jpg").getImage();
 	
 	public LayerBackgroung(int x, int y, int w, int h) {
 		super(x, y, w, h);
