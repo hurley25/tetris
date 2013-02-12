@@ -80,12 +80,12 @@ public class GameConfig {
 	}
 
 	private void setDataConfig(Element element) {
-		// TODO 自动生成的方法存根
+		// 自动生成的方法存根
 		
 	}
 
 	private void setSystemConfig(Element element) {
-		// TODO 自动生成的方法存根
+		// 自动生成的方法存根
 		
 	}
 

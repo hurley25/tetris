@@ -36,7 +36,7 @@ public class GameDto {
 	public void dtoInit() {
 		// TODO
 		this.gameMap = new boolean[10][18];
-		// TODO 初始化所有游戏对象
+		// 初始化所有游戏对象
 	}
 
 	public List<Player> getDbRecode() {

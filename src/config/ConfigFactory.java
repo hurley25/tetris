@@ -10,7 +10,6 @@ public class ConfigFactory {
 		try {
 			GAME_CONFIG = new GameConfig();
 		} catch (DocumentException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 	}

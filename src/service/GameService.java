@@ -26,7 +26,6 @@ public class GameService {
 	 * 方块操作（上）
 	 */
 	public void keyUp() {
-		// TODO 修改为旋转
 		this.dto.getGameAct().round(this.dto.getGameMap());
 	}
 	
@@ -45,7 +44,10 @@ public class GameService {
 		for (int i = 0; i < act.length; i++) {
 			map[act[i].x][act[i].y] = true;
 		}
-		// TODO 判断是否可以消行 消行 计分 是否升级
+		// 判断消行
+		int exp = this.plusExp();
+		// 增加经验值
+		this.levelUp(exp);
 		// 随机生成下一个方块
 		this.dto.getGameAct().init(this.dto.getNext());
 		this.dto.setNext(random.nextInt(MAX_TYPE));
@@ -63,5 +65,51 @@ public class GameService {
 	 */
 	public void keyRight() {
 		this.dto.getGameAct().move(1, 0, this.dto.getGameMap());
+	}
+	
+	// 增加分数
+	private void levelUp(int exp) {
+		int rmLine = this.dto.getNowRemoveLine();
+		rmLine += exp;
+		this.dto.setNowRemoveLine(rmLine);
+	}
+	
+	/*
+	 * 加分操作
+	 */
+	private int plusExp() {
+		int exp = 0;
+		boolean[][] map = this.dto.getGameMap();
+		for (int y = 0; y < 18; y++ ) {
+			if (isCanRemove(y, map)) {
+				this.removeLine(y, map);
+				exp++;
+			}
+		}
+		return exp;
+	}
+	
+	/*
+	 * 消行操作
+	 */
+	private void removeLine(int rowNumber, boolean[][] map) {
+		for (int x = 0; x < 10; x++ ) {
+			for (int y = rowNumber; y > 0; y--) {
+				map[x][y] = map[x][y-1];
+			}
+			map[x][0] = false;
+		}
+	}
+	
+	/*
+	 * 判断一行能否消行
+	 */
+	private boolean isCanRemove(int y, boolean[][] map) {
+		for (int x = 0; x < 10; x++ ) {
+			if (!map[x][y]) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
